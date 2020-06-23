@@ -7,6 +7,7 @@ import './app.scss';
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：
 import Nerv from 'nervjs';
+import { View, Tabbar, TabbarContainer, TabbarPanel } from '@tarojs/components';
 import { Router, createHistory, mountApis } from '@tarojs/router';
 Taro.initPxTransform({
   "designWidth": 750,
@@ -37,6 +38,29 @@ const dvaApp = dva.createApp({
 });
 const store = dvaApp.getStore();
 class App extends Component {
+  state = {
+    __tabs: {
+      color: '#7A7E83',
+      selectedColor: '#c73420',
+      borderStyle: 'black',
+      backgroundColor: '#ffffff',
+      list: [{
+        text: '首页',
+        pagePath: "/pages/index/index",
+        iconPath: require("./assets/image/index.png"),
+        selectedIconPath: require("./assets/image/index-act.png")
+      }, {
+        text: '我的',
+        pagePath: "/pages/index/index1",
+        iconPath: require("./assets/image/curriculum.png"),
+        selectedIconPath: require("./assets/image/curriculum-act.png")
+      }],
+      mode: "hash",
+      basename: "/",
+      customRoutes: {}
+    }
+  };
+
   constructor() {
     super(...arguments);
     /**
@@ -59,12 +83,19 @@ class App extends Component {
   render() {
     return <Provider store={store}>
           
+        <TabbarContainer>
+          
+        <TabbarPanel>
+          
                 <Router mode={"hash"} history={_taroHistory} routes={[{
-        path: '/pages/index/index',
-        componentLoader: () => import( /* webpackChunkName: "index_index" */'./pages/index/index'),
-        isIndex: true
-      }]} customRoutes={{}} />
+            path: '/pages/index/index',
+            componentLoader: () => import( /* webpackChunkName: "index_index" */'./pages/index/index'),
+            isIndex: true
+          }]} tabBar={this.state.__tabs} customRoutes={{}} />
                 
+        </TabbarPanel>
+        <Tabbar conf={this.state.__tabs} homePage="pages/index/index" />
+        </TabbarContainer>
         </Provider>;
   }
   config = {
@@ -81,11 +112,19 @@ class App extends Component {
       navigationBarBackgroundColor: '#0B9FFF',
       navigationBarTitleText: 'WeChat',
       navigationBarTextStyle: 'white'
+    },
+    tabBar: { color: '#7A7E83', selectedColor: '#c73420', borderStyle: 'black', backgroundColor: '#ffffff', list: [{ text: '首页', pagePath: "/pages/index/index", iconPath: require("./assets/image/index.png"), selectedIconPath: require("./assets/image/index-act.png") }, { text: '我的', pagePath: "/pages/index/index1", iconPath: require("./assets/image/curriculum.png"), selectedIconPath: require("./assets/image/curriculum-act.png") }], mode: "hash",
+      basename: "/",
+      customRoutes: {}
     }
   };
 
   componentWillUnmount() {
     this.componentDidHide();
+  }
+
+  componentWillMount() {
+    Taro.initTabBarApis(this, Taro);
   }
 
 }

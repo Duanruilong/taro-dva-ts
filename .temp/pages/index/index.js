@@ -25,9 +25,9 @@ let Index = class Index extends Taro.Component {
   }
   async getIndex() {
     await this.props.dispatch({
-      type: 'index/getDate',
+      type: 'index/getIndexDate',
       payload: {
-        method: 'GET'
+        method: 'POSt'
       }
     }).then(() => {
       _stopPullDownRefresh();
@@ -35,6 +35,7 @@ let Index = class Index extends Taro.Component {
   }
   componentDidMount() {
     console.log('首页-=---Index');
+    this.getIndex();
     _hideLoading();
     // Taro.navigateTo({
     // 	url: `/pagesPlann/plannEntersList/index?`,

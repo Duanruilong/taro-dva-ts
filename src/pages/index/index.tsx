@@ -6,8 +6,6 @@ import { connect } from '@tarojs/redux'
 // import Api from '../../utils/request'
 // import Tips from '../../utils/tips'
 import { IndexProps, IndexState } from './index.interface'
-import Skeleton from 'taro-skeleton'
-import { bannerData } from "../../config/index";
 import { IsEmpty } from '../../utils/common'
 // import pageInit from '../../utils/pageInit'
 
@@ -48,11 +46,12 @@ class Index extends Component<IndexProps, IndexState> {
 
 	async getIndex() {
 		await this.props.dispatch({
-			type: 'index/getDate',
+			type: 'index/getIndexDate',
 			payload: {
-				method: 'GET',
+				method: 'POSt',
 			}
 		}).then(() => {
+			
 			Taro.stopPullDownRefresh();
 		})
 	}
@@ -62,8 +61,9 @@ class Index extends Component<IndexProps, IndexState> {
 
 	componentDidMount() {
 		console.log('首页-=---Index');
+		
+		this.getIndex()
 		Taro.hideLoading();
-
 		// Taro.navigateTo({
 		// 	url: `/pagesPlann/plannEntersList/index?`,
 		//   });

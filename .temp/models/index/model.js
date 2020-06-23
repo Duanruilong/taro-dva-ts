@@ -3,21 +3,21 @@ import * as curriculumApi from './service';
 export default {
   namespace: 'index',
   state: {
-    Date: [],
+    indexDate: [],
     pageNum: 1
   },
   effects: {
-    *getDate({ payload }, { select, call, put }) {
-      // console.log('获取首页数据=22 payload=》', payload);
-      const { pageNum, UniversityDate } = yield select(state => state.university);
-      // console.log('获取首页数据=22 UniversityDate=》', pageNum, UniversityDate);
+    *getIndexDate({ payload }, { select, call, put }) {
+      console.log('获取首页数据=22 payload=》', payload);
+      const { pageNum, indexDate } = yield select(state => state.index);
+      // console.log('获取首页数据=22 indexDate=》', pageNum, indexDate);
       const response = yield call(curriculumApi.getDate, { ...payload });
-      // console.log(pageNum, UniversityDate,'获取首页数据=22 data=》', response);
+      // console.log(pageNum, indexDate,'获取首页数据=22 data=》', response);
       if (response.code === 0) {
         yield put({
           type: 'save',
           payload: {
-            UniversityDate: payload.page_num > 1 ? [...UniversityDate, ...response.universities] : response.universities
+            indexDate: payload.page_num > 1 ? [...indexDate, ...response.universities] : response.universities
           }
         });
         yield put({
@@ -27,6 +27,7 @@ export default {
           }
         });
       }
+      return response;
     }
   },
   reducers: {

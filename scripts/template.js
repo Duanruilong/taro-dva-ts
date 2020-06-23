@@ -27,7 +27,6 @@ import { ${capPirName}Props, ${capPirName}State } from './${dirName}.interface'
 import './index.scss'
 // import {  } from '../../components'
 import { IsEmpty } from '../../utils/common'
-import Tips from "../../utils/tips";
 
 // @connect(({ ${dirName} }) => ({
 //     ...${dirName},
@@ -71,38 +70,38 @@ const scssTep = `
 
 // config 接口地址配置模板
 
-const configTep =`
-    export default {
-        test:'/wechat/perfect-info',  //XX接口
-    }
-`
+// const configTep =`
+//     export default {
+//         test:'/wechat/perfect-info',  //XX接口
+//     }
+// `
 
 // 接口请求模板
 
-const serviceTep =`
-    import Api from '../../utils/request'
-    export const testApi = data => Api.test(
-        data
-    )
-`
+// const serviceTep =`
+//     import Api from '../../utils/request'
+//     export const testApi = data => Api.test(
+//         data
+//     )
+// `
 
 // model 模板
 
-const modelTep = `
-    // import Taro from '@tarojs/taro';
-    // import * as ${dirName}Api from './service';
-    export default {
-        namespace: '${dirName}',
-        state: {
-        },
+// const modelTep = `
+//     // import Taro from '@tarojs/taro';
+//     // import * as ${dirName}Api from './service';
+//     export default {
+//         namespace: '${dirName}',
+//         state: {
+//         },
         
-        effects: {},
+//         effects: {},
         
-        reducers: {}
+//         reducers: {}
     
-    }
+//     }
 
-`
+// `
 
 const interfaceTep = `
 /**
@@ -131,8 +130,8 @@ process.chdir(`./src/pages/${dirName}`); // cd $1
 fs.writeFileSync(`index.tsx`, indexTep); //tsx
 fs.writeFileSync(`index.scss`, scssTep); // scss
 // fs.writeFileSync('config.ts', configTep); // config
-fs.writeFileSync('service.ts', serviceTep); // service
-fs.writeFileSync('model.ts', modelTep); // model
+// fs.writeFileSync('service.ts', serviceTep); // service
+// fs.writeFileSync('model.ts', modelTep); // model
 fs.writeFileSync(`${dirName}.interface.ts`, interfaceTep); // interface
 process.exit(0);
 

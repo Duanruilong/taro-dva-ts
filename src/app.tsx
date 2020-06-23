@@ -61,6 +61,26 @@ class App extends Component {
         navigationBarTitleText: 'WeChat',
         navigationBarTextStyle: 'white'
       },
+      tabBar: {
+        color: '#7A7E83',
+        selectedColor: '#c73420',
+        borderStyle: 'black',
+        backgroundColor: '#ffffff',
+        list: [
+          {
+            text: '首页',
+            pagePath: 'pages/index/index',
+            iconPath: 'assets/image/index.png',
+            selectedIconPath: 'assets/image/index-act.png',
+          },
+          {
+            text: '我的',
+            pagePath: 'pages/index/index1',
+            iconPath: 'assets/image/curriculum.png',
+            selectedIconPath: 'assets/image/curriculum-act.png',
+          },
+        ]
+      },
   }
 
   // 在 App 类中的 render() 函数没有实际作用
