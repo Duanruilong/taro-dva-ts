@@ -41,8 +41,8 @@ class App extends Component {
   state = {
     __tabs: {
       color: '#7A7E83',
-      selectedColor: '#c73420',
-      borderStyle: 'black',
+      selectedColor: '#000000',
+      borderStyle: '#ffffff',
       backgroundColor: '#ffffff',
       list: [{
         text: '首页',
@@ -51,7 +51,7 @@ class App extends Component {
         selectedIconPath: require("./assets/image/index-act.png")
       }, {
         text: '我的',
-        pagePath: "/pages/index/index1",
+        pagePath: "/pages/curriculum/index",
         iconPath: require("./assets/image/curriculum.png"),
         selectedIconPath: require("./assets/image/curriculum-act.png")
       }],
@@ -91,6 +91,10 @@ class App extends Component {
             path: '/pages/index/index',
             componentLoader: () => import( /* webpackChunkName: "index_index" */'./pages/index/index'),
             isIndex: true
+          }, {
+            path: '/pages/curriculum/index',
+            componentLoader: () => import( /* webpackChunkName: "curriculum_index" */'./pages/curriculum/index'),
+            isIndex: false
           }]} tabBar={this.state.__tabs} customRoutes={{}} />
                 
         </TabbarPanel>
@@ -99,7 +103,7 @@ class App extends Component {
         </Provider>;
   }
   config = {
-    pages: ["/pages/index/index"],
+    pages: ["/pages/index/index", "/pages/curriculum/index"],
     preloadRule: {
       'pages/index/index': {
         network: "all",
@@ -113,7 +117,7 @@ class App extends Component {
       navigationBarTitleText: 'WeChat',
       navigationBarTextStyle: 'white'
     },
-    tabBar: { color: '#7A7E83', selectedColor: '#c73420', borderStyle: 'black', backgroundColor: '#ffffff', list: [{ text: '首页', pagePath: "/pages/index/index", iconPath: require("./assets/image/index.png"), selectedIconPath: require("./assets/image/index-act.png") }, { text: '我的', pagePath: "/pages/index/index1", iconPath: require("./assets/image/curriculum.png"), selectedIconPath: require("./assets/image/curriculum-act.png") }], mode: "hash",
+    tabBar: { color: '#7A7E83', selectedColor: '#000000', borderStyle: '#ffffff', backgroundColor: '#ffffff', list: [{ text: '首页', pagePath: "/pages/index/index", iconPath: require("./assets/image/index.png"), selectedIconPath: require("./assets/image/index-act.png") }, { text: '我的', pagePath: "/pages/curriculum/index", iconPath: require("./assets/image/curriculum.png"), selectedIconPath: require("./assets/image/curriculum-act.png") }], mode: "hash",
       basename: "/",
       customRoutes: {}
     }

@@ -38,7 +38,8 @@ class App extends Component {
    */
   config: Config = {
     pages: [
-      'pages/index/index'
+      'pages/index/index',
+      'pages/curriculum/index'
     ],
     preloadRule: {
       'pages/index/index':{
@@ -63,8 +64,8 @@ class App extends Component {
       },
       tabBar: {
         color: '#7A7E83',
-        selectedColor: '#c73420',
-        borderStyle: 'black',
+        selectedColor: '#000000',
+        borderStyle: '#ffffff',
         backgroundColor: '#ffffff',
         list: [
           {
@@ -75,7 +76,7 @@ class App extends Component {
           },
           {
             text: '我的',
-            pagePath: 'pages/index/index1',
+            pagePath: 'pages/curriculum/index',
             iconPath: 'assets/image/curriculum.png',
             selectedIconPath: 'assets/image/curriculum-act.png',
           },
