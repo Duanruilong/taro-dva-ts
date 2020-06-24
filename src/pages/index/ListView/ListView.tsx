@@ -17,9 +17,9 @@ class ListView extends Component<ListViewProps,ListViewState > {
     super(props)
     this.state = {}
   }
-  static options = {
-    addGlobalClass: true //样式隔离
-  }
+  // static options = {
+  //   addGlobalClass: true //样式隔离
+  // }
   static defaultProps:ListViewProps = {
     // date: any
   }

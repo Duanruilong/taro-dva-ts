@@ -2,6 +2,7 @@ import Nerv from "nervjs";
 import { __decorate } from "tslib";
 import Taro, { showLoading as _showLoading, stopPullDownRefresh as _stopPullDownRefresh, hideLoading as _hideLoading } from "@tarojs/taro-h5";
 import { View, ScrollView } from '@tarojs/components';
+import { AtButton } from "taro-ui";
 import { connect } from "@tarojs/redux-h5";
 import BanSwiper from '../../components/BanSwiper/BanSwiper';
 import ListView from './ListView/ListView';
@@ -90,6 +91,7 @@ let Index = class Index extends Taro.Component {
 					<View>Index引用外部公共组件</View>
 					
 					<BanSwiper banneret={indexDate && indexDate.list ? indexDate.list : []}></BanSwiper>
+					<AtButton type="primary">按钮文案</AtButton>
 
 					<ScrollView className="scrollview" scrollY scrollWithAnimation scrollTop={scrollTop} style={scrollStyle} lowerThreshold={Threshold} upperThreshold={Threshold} onScrollToUpper={this.onScrollToUpper.bind(this)} // 使用箭头函数的时候 可以这样写 `onScrollToUpper={this.onScrollToUpper}`
       onScroll={this.onScroll}>
@@ -99,7 +101,6 @@ let Index = class Index extends Taro.Component {
 					</ScrollView>
 					<View>Index内部自己的组件</View>
 					<ListView listData={indexDate} />
-					
 					
 			</View>;
   }
@@ -124,6 +125,9 @@ let Index = class Index extends Taro.Component {
     this._offReachBottom && this._offReachBottom();
   }
 
+};
+Index.options = {
+  addGlobalClass: true //样式隔离
 };
 Index = __decorate([connect(({ index }) => ({
   ...index

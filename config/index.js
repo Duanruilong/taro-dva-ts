@@ -9,6 +9,7 @@ const config = {
   },
   sourceRoot: 'src',
   outputRoot: 'dist',
+  
   babel: {
     sourceMap: true,
     presets: [
@@ -31,6 +32,11 @@ const config = {
   plugins: [],
   defineConstants: {
   },
+  alias: {
+    '@/components': path.resolve(__dirname, '..', 'src/components'),
+    // '@/utils': path.resolve(__dirname, '..', 'src/utils'),
+  },
+  // 小程序端专用配置
   mini: {
     postcss: {
       pxtransform: {
@@ -50,8 +56,12 @@ const config = {
           generateScopedName: '[name]__[local]___[hash:base64:5]'
         }
       }
-    }
+    },
+     // 替换 JSX 中的属性名，参考：
+    // https://github.com/NervJS/taro/issues/2077
+    jsxAttributeNameReplace: {}
   },
+   // H5 端专用配置
   h5: {
     publicPath: '/',
     staticDirectory: 'static',

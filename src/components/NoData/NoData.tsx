@@ -8,9 +8,7 @@ class NoData extends Component<NoDataProps,NoDataState > {
     super(props)
     this.state = {}
   }
-  static options = {
-    addGlobalClass: true
-  }
+
   static defaultProps:NoDataProps = {}
 
   render() {

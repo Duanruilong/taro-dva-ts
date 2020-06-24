@@ -31,7 +31,7 @@ class BanSwiper extends Taro.Component {
   }
 }
 BanSwiper.options = {
-  addGlobalClass: true //样式隔离
+  // addGlobalClass: true //样式隔离
 };
 BanSwiper.defaultProps = {
   // date: any

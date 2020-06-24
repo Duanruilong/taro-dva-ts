@@ -39,6 +39,10 @@ class Index extends Component<IndexProps, IndexState> {
 		}
 	}
 
+	static options = {
+		addGlobalClass: true //样式隔离
+	}
+
 	componentWillMount() {
 		Taro.showLoading({
 			title: 'loading'
@@ -135,6 +139,7 @@ class Index extends Component<IndexProps, IndexState> {
 					<View >Index引用外部公共组件</View>
 					
 					<BanSwiper banneret={(indexDate&& indexDate.list) ? indexDate.list : []}></BanSwiper>
+					<AtButton type='primary'>按钮文案</AtButton>
 
 					<ScrollView
 						className='scrollview'
@@ -153,7 +158,6 @@ class Index extends Component<IndexProps, IndexState> {
 					</ScrollView>
 					<View >Index内部自己的组件</View>
 					<ListView listData={indexDate}/>
-					
 					
 			</View>
 

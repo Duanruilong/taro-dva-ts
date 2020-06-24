@@ -9,9 +9,6 @@ declare module '@tarojs/taro' {
     interface Component {
         $api: any
     }
-    interface hideLoading {
-        $api: any
-    }
 }
 
 // 声明

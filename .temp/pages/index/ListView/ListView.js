@@ -29,9 +29,9 @@ class ListView extends Taro.Component {
       </View>;
   }
 }
-ListView.options = {
-  addGlobalClass: true //样式隔离
-};
+// static options = {
+//   addGlobalClass: true //样式隔离
+// }
 ListView.defaultProps = {
   // date: any
 };
