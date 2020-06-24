@@ -55,7 +55,7 @@ export default {
   request(options, method) {
     const { url } = options;
     return new Promise((resolve, reject) => {
-      // console.log(method,'接口请求==',options);
+      console.log(method, '接口请求==', options);
       _request({
         ...options,
         method: method || 'POST',

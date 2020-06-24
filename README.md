@@ -14,15 +14,26 @@ cnpm run tep index
 
 page文件夹下生成了一个index的文件夹，里面包含
 
-- config.ts
 - index.interface.ts
 - index.scss
 - index.tsx
-- model.ts
-- service.ts
 
 ```
 
 ### npm run com '文件名‘
+
+
+```
+
+cnpm run com list
+
+
+components文件夹下生成了一个list的文件夹，里面包含
+
+- index.interface.ts
+- index.scss
+- index.tsx
+
+```
 
 

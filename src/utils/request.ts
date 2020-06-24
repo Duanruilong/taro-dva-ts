@@ -29,7 +29,6 @@ import { ISMOCK, MAINHOST ,HTTP_STATUS, HTTP_ERROR} from "../config";
             resolve(response.data)
         }else{
             resolve(response.data)
-
         }
      } else {
          const message = HTTP_ERROR[response.statusCode] || `ERROR CODE : ${response.statusCode}`
@@ -66,7 +65,7 @@ export default {
     request(options: any, method?: string){
         const { url } = options
         return new Promise((resolve,reject)=>{
-            // console.log(method,'接口请求==',options);
+            console.log(method,'接口请求==',options);
             
             Taro.request({
                 ...options,

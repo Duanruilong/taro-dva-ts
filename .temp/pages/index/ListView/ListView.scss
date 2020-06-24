@@ -1,0 +1,17 @@
+@import "../../../assets/scss/variables.scss";
+
+
+.#{$prefix} {
+
+  &-wrap {
+    width: 100%;
+    &-item{
+      font-size: $font-size-20;
+      border-bottom:1px solid rgb(204, 204, 204) ;
+      text-align: left;
+      line-height: $font-size-48;
+      padding: 0 $h-spacing-40;
+    } 
+   
+  }
+}

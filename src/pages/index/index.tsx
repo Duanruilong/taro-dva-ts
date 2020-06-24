@@ -1,9 +1,11 @@
 
 import Taro, { Component, Config } from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
-import { AtMessage } from "taro-ui"
+import { View, Text, ScrollView } from '@tarojs/components'
+import { AtButton   } from "taro-ui"
 import { connect } from '@tarojs/redux'
-// import Api from '../../utils/request'
+import BanSwiper from '../../components/BanSwiper/BanSwiper'
+
+import ListView from './ListView/ListView'
 // import Tips from '../../utils/tips'
 import { IndexProps, IndexState } from './index.interface'
 import { IsEmpty } from '../../utils/common'
@@ -72,13 +74,14 @@ class Index extends Component<IndexProps, IndexState> {
 
 
 
-	onPullDownRefresh() { //下拉事件
-		console.log('//下拉事件');
-		// Taro.showLoading({
-		// 	title: 'loading'
-		// })
+	// onPullDownRefresh() { //下拉事件
+	// 	console.log('//下拉事件');
+	// 	// Taro.showLoading({
+	// 	// 	title: 'loading'
+	// 	// })
+	// 	// Taro.stopPullDownRefresh();
 		
-	}
+	// }
 
 
 
@@ -91,16 +94,67 @@ class Index extends Component<IndexProps, IndexState> {
 
 	}
 
+	handleClick=()=>{
 
+	}
+
+	onScrollToUpper() {}
+
+	// or 使用箭头函数
+	// onScrollToUpper = () => {}
+  
+	onScroll(e){
+	//   console.log(e.detail)
+	}
 
 	render() {
-		const { } = this.props;
+		const { indexDate} = this.props;
 		const { sLoading } = this.state;
 		console.log(sLoading, '---=首页=>>', this.props);
-
+		const scrollStyle = {
+			height: '150px'
+		  }
+		  const scrollTop = 0
+		  const Threshold = 20
+		  const vStyleA = {
+			height: '150px',
+			'background-color': 'rgb(26, 173, 25)'
+		  }
+		  const vStyleB = {
+			 height: '150px',
+			'background-color': 'rgb(39,130,215)'
+		  }
+		  const vStyleC = {
+			height: '150px',
+			'background-color': 'rgb(241,241,241)',
+			color: '#333'
+		  }
 		return (
-			<View className='fx-plann-wrap'>
-				<View className='cent-leTit'>生涯资讯</View>
+			<View className='fx-wrap'>
+				<View className='fx-wrap-top' style={{color:'#444'}}>首页</View>
+					<View >Index引用外部公共组件</View>
+					
+					<BanSwiper banneret={(indexDate&& indexDate.list) ? indexDate.list : []}></BanSwiper>
+
+					<ScrollView
+						className='scrollview'
+						scrollY
+						scrollWithAnimation
+						scrollTop={scrollTop}
+						style={scrollStyle}
+						lowerThreshold={Threshold}
+						upperThreshold={Threshold}
+						onScrollToUpper={this.onScrollToUpper.bind(this)} // 使用箭头函数的时候 可以这样写 `onScrollToUpper={this.onScrollToUpper}`
+						onScroll={this.onScroll}
+					>
+						<View style={vStyleA}>A</View>
+						<View style={vStyleB}>B</View>
+						<View style={vStyleC}>C</View>
+					</ScrollView>
+					<View >Index内部自己的组件</View>
+					<ListView listData={indexDate}/>
+					
+					
 			</View>
 
 		)

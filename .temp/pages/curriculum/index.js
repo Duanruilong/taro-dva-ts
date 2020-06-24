@@ -20,5 +20,14 @@ class Curriculum extends Taro.Component {
   config = {
     navigationBarTitleText: '页面标题'
   };
+
+  componentDidShow() {
+    super.componentDidShow && super.componentDidShow();
+  }
+
+  componentDidHide() {
+    super.componentDidHide && super.componentDidHide();
+  }
+
 }
 export default Curriculum;

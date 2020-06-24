@@ -34,7 +34,7 @@ class ${capPirName} extends Component<${capPirName}Props,${capPirName}State > {
   render() {
     return (
       <View className='fx-${dirName}'>
-
+        ${dirName}组件
       </View>
     )
   }

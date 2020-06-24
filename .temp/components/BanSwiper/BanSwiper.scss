@@ -1,0 +1,31 @@
+@import "../../assets/scss/variables";
+
+.#{$prefix} {
+
+  &-BanSwiper-wrap {
+    width: 100%;
+    .swiper-container {
+      width: 100%;
+      min-height: 400px;
+      height: 100%;
+    }
+    .swiper {
+      // padding:3vw;
+      height: 380px;
+      overflow: hidden;
+      image {
+        width: 100%;
+        // border-radius: 12px;
+        box-shadow: 1px solid #ddd;
+        background-attachment: scroll;
+        // height: 400px !important;
+      }
+      .taro-img{
+        width: 100% !important;
+      }
+      // img {
+      //   height: 400px !important;
+      // }
+    }
+  }
+}
